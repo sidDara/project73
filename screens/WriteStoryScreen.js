@@ -1,7 +1,32 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, TextInput, TouchableOpacity, ToastAndroid, KeyboardAvoidingView } from 'react-native';
+import db from '../config.js'
 
 export default class WriteStoryScreen extends React.Component {
+    constructor(){
+      super();
+      this.state={
+        title:'',
+        author:'',
+        story:''
+      }
+    }
+      submitStory = ()=>{
+        db.collection("Book Details").add({
+            title: this.state.title,
+            author: this.state.author,
+            story: this.state.story,
+        })
+        this.setState({
+            title: '',
+            author: '',
+            story: ''
+        })
+       ToastAndroid.show("story submitted");
+    }
+    
+  
+  
     render() {
       return (
           <View>
@@ -19,7 +44,9 @@ export default class WriteStoryScreen extends React.Component {
               style={styles.storyText}
               placeholder="Write Here"/>
               
-            <TouchableOpacity style={styles.submitButton}>
+            <TouchableOpacity 
+            style={styles.submitButton} 
+            onPress={this.submitButton}>
               <Text style={styles.buttonText}>submit</Text>
             </TouchableOpacity>
           </View>
