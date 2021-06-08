@@ -29,7 +29,7 @@ export default class WriteStoryScreen extends React.Component {
   
     render() {
       return (
-          <View>
+          <KeyboardAvoidingView>
             <TextInput
               style={styles.titleBox}
               placeholder="Title"
@@ -49,7 +49,7 @@ export default class WriteStoryScreen extends React.Component {
             onPress={this.submitButton}>
               <Text style={styles.buttonText}>submit</Text>
             </TouchableOpacity>
-          </View>
+          </KeyboardAvoidingView>
       );
     }
   }
