@@ -1,7 +1,7 @@
 import firebase from 'firebase';
 require('@firebase/firestore')
 
-var firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyApS99J5_BHylDMNY4APirwYCKOMKmhXAY",
     authDomain: "story-app-f1a81.firebaseapp.com",
     databaseURL: "https://story-app-f1a81-default-rtdb.firebaseio.com",
